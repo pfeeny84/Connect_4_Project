@@ -7,7 +7,7 @@
     box-shadow: 12px 12px 7px rgba(19, 19, 20, 0.443);
     width: 840px;
     height: 720px;
-    margin: 5% auto;
+    margin: auto;
     background-color: #0077b6;
 }
 
@@ -31,7 +31,7 @@ h1{
 .reset-buttons{
     height: 48px;
     width: 588px;
-    margin: 0 auto; 
+    margin: 2% auto; 
     text-align: center;
 }
 
@@ -45,7 +45,7 @@ h1{
     font-size: 28px;
     padding: 20px;
     width: 200px;
-    margin: 2px;
+    margin: 10px;
     box-shadow: 1px 1px 1.5px  #0b0b0b6e ;
 }
 #new-round{
@@ -58,6 +58,22 @@ h1{
     font-size: 28px;
     padding: 20px;
     width: 200px;
-    margin: 2px;
+    margin: 10px;
     box-shadow: 1px 1px 1.5px  #0b0b0b6e ;
+}
+.player-info{
+    
+}  
+#player-1{
+    display: inline-block;
+    margin: 60px;
+    
+}
+
+#player-2{
+    display: inline-block;
+    margin: 60px;
+    float: right;
+    
+    
 }
