@@ -34,3 +34,30 @@ h1{
     margin: 0 auto; 
     text-align: center;
 }
+
+#new-game{
+    display: inline-block;
+    background-color: #7b38d8;
+    border-radius: 10px;
+    border: 4px double #d0e3f1d5;
+    color: #ffffff;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    margin: 2px;
+    box-shadow: 1px 1px 1.5px  #0b0b0b6e ;
+}
+#new-round{
+    display: inline-block;
+    background-color:#7b38d8 ;
+    border-radius: 10px;
+    border: 4px double #d0e3f1d5;
+    color: #ffffff;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    margin: 2px;
+    box-shadow: 1px 1px 1.5px  #0b0b0b6e ;
+}
