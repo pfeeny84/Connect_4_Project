@@ -61,19 +61,38 @@ h1{
     margin: 10px;
     box-shadow: 1px 1px 1.5px  #0b0b0b6e ;
 }
-.player-info{
+/* .player-info{
     
-}  
+}   */
 #player-1{
-    display: inline-block;
+    display:inline-block;
     margin: 60px;
-    
 }
 
 #player-2{
-    display: inline-block;
+    
     margin: 60px;
     float: right;
-    
-    
 }
+
+#p1{
+    border-radius: 10px;
+    border: 4px double #000000d5;
+    padding: 5px;
+    background-color: #7b38d8;
+    color: #ff0000;
+}
+#p2{
+    border-radius: 10px;
+    border: 4px double #000000d5;
+    padding: 5px;
+    background-color: #7b38d8;
+    color: #fffb00;
+}
+/* h2{
+    border-radius: 10px;
+    border: 4px double #000000d5;
+    padding: 5px;
+    background-color: #7b38d8;
+    color: #ffffff;
+} */
