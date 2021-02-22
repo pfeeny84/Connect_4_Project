@@ -1,7 +1,7 @@
 /*----- constants -----*/
 const board = document.querySelector(".grid-container");
-const newGame = document.querySelector('#new-game');
-const newRound = document.querySelector('#new-round');
+const newGameBtn = document.querySelector('#new-game');
+const newRoundBtn = document.querySelector('#new-round');
 const winningArray = [
 [0, 1, 2, 3],
 [41, 40, 39, 38],
@@ -101,15 +101,25 @@ const players = {
 };
 
 /*----- event listeners -----*/
-/*----- functions -----*/
-function init(){
+let initGame = function init(){
     console.log('initiating...');
 };
+initGame
+newGameBtn.addEventListener('click', initGame);
 
-function render(){
-    console.log('rendering');
+let newRound = function round(){
+    console.log('new round');
+}
+newRound
+newRoundBtn.addEventListener('click', newRound)
+
+
+
+/*----- functions -----*/
+
+let renderGame = function render(){
+    console.log('rendering...');
 };
-
 
 
 
