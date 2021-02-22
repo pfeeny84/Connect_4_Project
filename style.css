@@ -19,6 +19,11 @@
     box-shadow: 1.75px 2px 1.5px 1px #0b0b0b6e ;
     text-align: center;
 }
+
+.grid-item:hover {
+    background-color: red;
+    cursor:pointer;
+}
 body{
     background-color: #caf0f8;
 }
@@ -48,6 +53,9 @@ h1{
     margin: 10px;
     box-shadow: 1px 1px 1.5px  #0b0b0b6e ;
 }
+#new-game:hover{
+    cursor:pointer;
+}
 #new-round{
     display: inline-block;
     background-color:#7b38d8 ;
@@ -60,6 +68,9 @@ h1{
     width: 200px;
     margin: 10px;
     box-shadow: 1px 1px 1.5px  #0b0b0b6e ;
+}
+#new-round:hover{
+    cursor:pointer;
 }
 /* .player-info{
     

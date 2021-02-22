@@ -1,6 +1,6 @@
 /*----- constants -----*/
 const board = document.querySelector(".grid-container");
-const space = document.querySelectorAll(".grid-item")
+const space = document.querySelector(".grid-item")
 const newGameBtn = document.querySelector('#new-game');
 const newRoundBtn = document.querySelector('#new-round');
 const winningArray = [
@@ -76,7 +76,7 @@ const winningArray = [
 ];
 
 /*----- app's state (variables) -----*/
-let currentPlayer= 1; //whose turn it is
+let currentPlayer= null; //whose turn it is
 
 
 /*----- cached element references -----*/
@@ -108,19 +108,19 @@ const players = {
 let initGame = function init(){
     console.log('initiating...');
 };
-initGame;
+// initGame;
 newGameBtn.addEventListener('click', initGame);
 
 let newRound = function round(){
     console.log('new round');
 }
-newRound;
+// newRound;
 newRoundBtn.addEventListener('click', newRound);
 
 let mapBoard = function mapGrid(){
-    console.log('space clicked');
+    console.log('board clicked');
 }
-mapBoard;
+// mapBoard;
 board.addEventListener('click', mapBoard);
 
 
@@ -129,6 +129,20 @@ board.addEventListener('click', mapBoard);
 let renderGame = function render(){
     console.log('rendering...');
 };
+
+
+// document.body.board.space.forEach(item => {
+//     item.addEventListener('click', event => {
+//         if (currentPlayer === '1'){
+//             console.log('red');
+//          } else if(currentPlayer === '-1'){
+//              console.log('yellow')
+//          }
+//         })
+//     })
+
+
+
 
 
 
