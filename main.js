@@ -1,5 +1,6 @@
 /*----- constants -----*/
 const board = document.querySelector(".grid-container");
+const space = document.querySelectorAll(".grid-item")
 const newGameBtn = document.querySelector('#new-game');
 const newRoundBtn = document.querySelector('#new-round');
 const winningArray = [
@@ -91,12 +92,15 @@ const players = {
     '1': {
             name: 'player 1',
             rounds_won: 0,
-            moves: 0
+            moves: 0,
+            spaces_taken: []
     },
     '-1': {
             name: 'player 2',
             rounds_won: 0,
-            moves: 0
+            moves: 0,
+            spaces_taken: []
+
     } 
 };
 
@@ -104,15 +108,20 @@ const players = {
 let initGame = function init(){
     console.log('initiating...');
 };
-initGame
+initGame;
 newGameBtn.addEventListener('click', initGame);
 
 let newRound = function round(){
     console.log('new round');
 }
-newRound
-newRoundBtn.addEventListener('click', newRound)
+newRound;
+newRoundBtn.addEventListener('click', newRound);
 
+let mapBoard = function mapGrid(){
+    console.log('space clicked');
+}
+mapBoard;
+board.addEventListener('click', mapBoard);
 
 
 /*----- functions -----*/
@@ -120,6 +129,11 @@ newRoundBtn.addEventListener('click', newRound)
 let renderGame = function render(){
     console.log('rendering...');
 };
+
+
+
+
+
 
 
 
