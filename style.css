@@ -72,9 +72,13 @@ h1{
 #new-round:hover{
     cursor:pointer;
 }
-/* .player-info{
-    
-}   */
+.player1{
+    background-color :crimson; 
+} 
+
+.player2{
+    background-color : yellow; 
+}
 #player-1{
     display:inline-block;
     margin: 60px;
