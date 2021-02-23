@@ -156,3 +156,10 @@ for (let i = 0; i < space.length; i++){
 //         })
 //     })
 
+/* h2{
+    border-radius: 10px;
+    border: 4px double #000000d5;
+    padding: 5px;
+    background-color: #7b38d8;
+    color: #ffffff;
+} */

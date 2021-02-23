@@ -84,13 +84,13 @@ const winningArray = [
 
 const players = {
     '1': {
-        name: 'player 1',
+        name: 'Player 1',
         rounds_won: 0,
         moves: 0,
         spaces_taken: []
     },
     '-1': {
-        name: 'player 2',
+        name: 'Player 2',
         rounds_won: 0,
         moves: 0,
         spaces_taken: []
@@ -107,16 +107,30 @@ const players = {
 
 /*----- functions -----*/
 
-function initialize(){ 
-   
-    player.innerHTML=currentPlayer 
+function initialize(){  
     let spaces = document.querySelectorAll(".grid-item");
     Array.from(spaces).forEach(function(space) { 
     space.addEventListener("click",function(){
         console.log('spaced clicked');
     })
     })
-    newGameBtn.addEventListener("click",function(reset){
+    newGameBtn.addEventListener("click",function reset(){
+        currentPlayer = players[1].name;
+        player.innerHTML=currentPlayer
+        players[1].moves = 0;
+        players[-1].moves = 0;
+        players[1].rounds_won = 0; 
+        players[-1].rounds_won =0;
+        players[1].spaces_taken = []; 
+        players[-1].spaces_taken = [];
+        document.getElementById("p1-moves").innerHTML = players[1].moves;
+        document.getElementById("p1-rounds-won").innerHTML = players[1].rounds_won;
+        document.getElementById("p2-moves").innerHTML = players[-1].moves;
+        document.getElementById("p2-rounds-won").innerHTML = players[-1].rounds_won;
+
+
         console.log('resetting state...');
     }) 
 }
+
+initialize();
