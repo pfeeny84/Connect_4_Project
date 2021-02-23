@@ -1,7 +1,7 @@
 /*----- constants -----*/
 
 const board = document.querySelector(".grid-container");
-const space = document.getElementById(".grid-item")
+let spaces = document.querySelectorAll(".grid-item");
 const newGameBtn = document.querySelector('#new-game');
 const newRoundBtn = document.querySelector('#new-round');
 let player = document.querySelector(".player");
@@ -106,3 +106,17 @@ const players = {
 
 
 /*----- functions -----*/
+
+function initialize(){ 
+   
+    player.innerHTML=currentPlayer 
+    let spaces = document.querySelectorAll(".grid-item");
+    Array.from(spaces).forEach(function(space) { 
+    space.addEventListener("click",function(){
+        console.log('spaced clicked');
+    })
+    })
+    newGameBtn.addEventListener("click",function(reset){
+        console.log('resetting state...');
+    }) 
+}
