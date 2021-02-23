@@ -4,7 +4,8 @@ const board = document.querySelector(".grid-container");
 const space = document.getElementById(".grid-item")
 const newGameBtn = document.querySelector('#new-game');
 const newRoundBtn = document.querySelector('#new-round');
-let boxFilled = 0;
+let player = document.querySelector(".player");
+let spaceFilled = 0;
 let currentPlayer = 1;
 const winningArray = [
     [0, 1, 2, 3],
@@ -79,8 +80,29 @@ const winningArray = [
 ];
 
 
+/*----- app's state (variables) -----*/
+
+const players = {
+    '1': {
+        name: 'player 1',
+        rounds_won: 0,
+        moves: 0,
+        spaces_taken: []
+    },
+    '-1': {
+        name: 'player 2',
+        rounds_won: 0,
+        moves: 0,
+        spaces_taken: []
+        
+    } 
+};
+
+/*----- cached element references -----*/
 
 
 
+/*----- event listeners -----*/
 
 
+/*----- functions -----*/
