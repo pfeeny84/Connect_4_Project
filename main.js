@@ -110,8 +110,8 @@ const players = {
 function initialize(){  
     let spaces = document.querySelectorAll(".grid-item");
     Array.from(spaces).forEach(function(space) { 
-    space.addEventListener("click",function(){
-        console.log('spaced clicked');
+    space.addEventListener("click",function clicked(){
+        console.log('space clicked');
     })
     })
     newGameBtn.addEventListener("click",function reset(){
@@ -134,3 +134,14 @@ function initialize(){
 }
 
 initialize();
+
+
+function render(){
+    //when p1 clicks on an unoccupied space, I need a function to check:
+    //if the space is unoccupied and a valid play(above a taken space only)
+    //if it is valid, the background-color of the space should change to the players color
+    //then, I need the clicked space to be assigned a class of 'taken' and player x
+    //then, I need to push the index of the space into each players spaces_taken array.
+    //then, I need the moves ke in each players object to increase by 1
+    //then, 
+}
