@@ -98,14 +98,13 @@ const players = {
 
 /*----- cached element references -----*/
 let winner;
-let grid = [
+let grid = 
+   [[0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0]
-]; //what spaces are taken by which player
+    [0,0,0,0,0,0,0]]; //what spaces are taken by which player
 
 currentPlayer = players[1].name;
 
@@ -136,12 +135,11 @@ function initialize(){
     ];
     winner = null;
     
-    grid.forEach(function(el){
-        el.style.backgroundColor = '#caf0f8'
-    })
-
     render();
-}
+    };
+
+    
+
 initialize();
 
 function render(){
@@ -159,7 +157,10 @@ function render(){
             } else if (grid[i][j] == -1) {
                 let idx = i * 7 + j 
                 document.getElementById(`${idx}`).style.backgroundColor = 'yellow';
-            } 
+            } else if(grid[i][j] == 0) {
+                let idx = i * 7 + j
+                document.getElementById(`${idx}`).style.backgroundColor = '#caf0f8';
+            }
         })
     })
     
@@ -167,6 +168,15 @@ function render(){
 
 function newGame(){
     initialize();
+
+    // document.getElementsByClassName("grid-item").forEach(function(item){
+    //     item.style.backgroundColor = '#caf0f8'
+    // });
+
+    // grid.forEach(function(item){
+    //     item.style.backgroundColor = '#caf0f8'
+    // });
+
     // currentPlayer = players[1].name;
     // player.innerHTML=currentPlayer;
     // players[1].moves = 0;
