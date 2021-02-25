@@ -251,3 +251,11 @@ let click = spaces.forEach(function (space){
     // <div class ="taken"></div>
     // <div class ="taken"></div>
     // <div class ="taken"></div> -->
+
+    // loop rows --> rowIdx
+        // loop cols --> colIdx
+            // if (grid[rowIdx][colIdx] == 1){
+                // Do something 
+            // } else {
+
+            // }

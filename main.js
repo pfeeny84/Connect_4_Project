@@ -80,21 +80,17 @@ const winningArray = [
 
 /*----- app's state (variables) -----*/
 
-let currentPlayer = 1;
+let currentPlayer;
 const players = {
     '1': {
-        name: 'Player 1',
-        rounds_won: 0,
+        name: 'Player One',
         moves: 0,
-        spaces_taken: [],
         num: 1
         
     },
     '-1': {
-        name: 'Player 2',
-        rounds_won: 0,
+        name: 'Player Two',
         moves: 0,
-        spaces_taken: [],
         num: -1
         
     } 
@@ -126,14 +122,8 @@ function initialize(){
         player.innerHTML=currentPlayer
         players[1].moves = 0;
         players[-1].moves = 0;
-        players[1].rounds_won = 0; 
-        players[-1].rounds_won =0;
-        players[1].spaces_taken = []; 
-        players[-1].spaces_taken = [];
         document.getElementById("p1-moves").innerHTML = players[1].moves;
-        document.getElementById("p1-rounds-won").innerHTML = players[1].rounds_won;
         document.getElementById("p2-moves").innerHTML = players[-1].moves;
-        document.getElementById("p2-rounds-won").innerHTML = players[-1].rounds_won;
 
         grid = [
             [0,0,0,0,0,0,0],
@@ -155,27 +145,21 @@ function render(){
     let rows = document.querySelectorAll("[row]");
     let columns =document.querySelectorAll("[column]");
 
-    console.log(rows)
-    console.log(columns)
+    // console.log(rows)
+    // console.log(columns)
     
     grid.forEach(function (rows, i){
         rows.forEach(function (columns, j){
             if(grid[i][j] == 1) {
                 let idx = i * 7 + j;
-                document.getElementById(`${idx}`).style.backgroundColor = 'red';
+                document.getElementById(`${idx}`).style.backgroundColor = 'crimson';
             } else if (grid[i][j] == -1) {
                 let idx = i * 7 + j 
                 document.getElementById(`${idx}`).style.backgroundColor = 'yellow';
             }
         })
     })
-    // loop rows --> rowIdx
-        // loop cols --> colIdx
-            // if (grid[rowIdx][colIdx] == 1){
-                // Do something 
-            // } else {
-
-            // }
+    
 }
 
 
@@ -194,35 +178,36 @@ function spaceClicked(e){
     let topSpace = click % 7;
 
     
+    
     if (grid[Math.floor(bottomSpace / 7)][bottomSpace % 7] == 0){
-        grid[Math.floor(bottomSpace / 7)][bottomSpace % 7] = 1;
+        grid[Math.floor(bottomSpace / 7)][bottomSpace % 7] = currentPlayer === 'Player One' ? 1 : -1;
     } else if(grid[Math.floor(secondSpace / 7)][secondSpace % 7] == 0){
-        grid[Math.floor(secondSpace / 7)][secondSpace % 7] = 1;
+        grid[Math.floor(secondSpace / 7)][secondSpace % 7] = currentPlayer === 'Player One' ? 1 : -1;
     } else if(grid[Math.floor(thirdSpace / 7)][thirdSpace % 7] == 0){
-        grid[Math.floor(thirdSpace / 7)][thirdSpace % 7] = 1;
+        grid[Math.floor(thirdSpace / 7)][thirdSpace % 7] = currentPlayer === 'Player One' ? 1 : -1;
     } else if(grid[Math.floor(fourthSpace / 7)][fourthSpace % 7] == 0){
-        grid[Math.floor(fourthSpace / 7)][fourthSpace % 7] = 1;
+        grid[Math.floor(fourthSpace / 7)][fourthSpace % 7] = currentPlayer === 'Player One' ? 1 : -1;
     } else if(grid[Math.floor(fifthSpace / 7)][fifthSpace % 7] == 0){
-        grid[Math.floor(fifthSpace / 7)][fifthSpace % 7] = 1;
+        grid[Math.floor(fifthSpace / 7)][fifthSpace % 7] = currentPlayer === 'Player One' ? 1 : -1;
     } else if(grid[Math.floor(topSpace / 7)][topSpace % 7] == 0){
-        grid[Math.floor(topSpace / 7)][topSpace % 7] = 1;
+        grid[Math.floor(topSpace / 7)][topSpace % 7] = currentPlayer === 'Player One' ? 1 : -1;
     } else {
         alert('SELECTION NOT VALID')
     }
     console.log(grid)
 
-    // if(currentPlayer === players[1].name){
-    //     currentPlayer = players[-1].name;
-    //     player.innerHTML = currentPlayer;
-    //     click.className = "player-one taken";
+    if(currentPlayer === players[1].name){
+        currentPlayer = players[-1].name;
+        player.innerHTML = currentPlayer;
+        
 
-    //     // checkWin();
-    // } else if (currentPlayer === players[-1].name){
-    //     currentPlayer = players[1].name;
-    //     player.innerHTML = currentPlayer;
-    //     click.className = "player-two taken"
-    //     // checkWin();
-    // }
+        // checkWin();
+    } else if (currentPlayer === players[-1].name){
+        currentPlayer = players[1].name;
+        player.innerHTML = currentPlayer;
+        
+        // checkWin();
+    }
 
     render();
 }
