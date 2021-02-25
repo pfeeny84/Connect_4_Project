@@ -163,3 +163,91 @@ for (let i = 0; i < space.length; i++){
     background-color: #7b38d8;
     color: #ffffff;
 } */
+
+// let click = this needs to be set equal to the index of the clicked space
+
+let click = spaces.forEach(function (space){
+    return spaces.findIndex(space);
+})
+
+// console.log(Math.floor(bottomSpace / 7));
+    // console.log(grid[bottomSpace / 7])
+
+    // if(spaces[click + 7].classList.contains("taken") && !spaces[click].classList.contins("taken")){
+    //     if(currentPlayer === players[1].name){
+    //         currentPlayer = players[-1].name;
+    //         player.innerHTML = currentPlayer;
+    //         click.className = "player-one taken";
+    
+    //         checkWin();
+    //     } else if (currentPlayer === players[-1].name){
+    //         currentPlayer = players[1].name;
+    //         player.innerHTML = currentPlayer;
+    //         click.className = "player-two taken"
+    //         checkWin();
+    //     } else{
+    //         alert("NOT A VALID SELECTION");
+    //     }
+    // }
+
+
+
+
+
+//when p1 clicks on an unoccupied space, I need a function to check:
+//if the space is unoccupied and a valid play(above a taken space only)
+//if it is valid, the background-color of the space should change to the players color
+//then, I need the clicked space to be assigned a class of 'taken' and player x
+//then, I need to push the index of the space into each players spaces_taken array.
+//then, I need the moves key in each players object to increase by 1
+//then, I need to update current player to player one or two.
+//then, I need to check if there is a winner 
+
+//firstly, i need to grab my board spaces
+// let click = this needs to be set equal to the index of the clicked space
+// console.log(click)
+// let spaces = document.querySelectorAll(".grid-item");
+
+ // if(spaces[click + 7].classList.contains("taken") && !spaces[click].classList.contins("taken")){
+    //     if(currentPlayer === players[1].name){
+    //         currentPlayer = players[-1].name;
+    //         player.innerHTML = currentPlayer;
+    //         click.className = "player-one taken";
+    
+    //         checkWin();
+    //     } else if (currentPlayer === players[-1].name){
+    //         currentPlayer = players[1].name;
+    //         player.innerHTML = currentPlayer;
+    //         click.className = "player-two taken"
+    //         checkWin();
+    //     } else{
+    //         alert("NOT A VALID SELECTION");
+    //     }
+    // }
+
+
+
+
+
+//when p1 clicks on an unoccupied space, I need a function to check:
+//if the space is unoccupied and a valid play(above a taken space only)
+//if it is valid, the background-color of the space should change to the players color
+//then, I need the clicked space to be assigned a class of 'taken' and player x
+//then, I need to push the index of the space into each players spaces_taken array.
+//then, I need the moves key in each players object to increase by 1
+//then, I need to update current player to player one or two.
+//then, I need to check if there is a winner 
+
+//firstly, i need to grab my board spaces
+
+// Array.from(spaces).forEach(function(space) { 
+    // space.addEventListener("click",spaceClicked())
+    // })
+
+    // <!-- <div class ="taken"></div>
+    // <div class ="taken"></div>
+    // <div class ="taken"></div>
+    // <div class ="taken"></div>
+    // <div class ="taken"></div>
+    // <div class ="taken"></div>
+    // <div class ="taken"></div> -->

@@ -21,7 +21,7 @@
 }
 
 .grid-item:hover {
-    background-color: red;
+    background-color:grey;
     cursor:pointer;
 }
 body{
@@ -72,11 +72,12 @@ h1{
 #new-round:hover{
     cursor:pointer;
 }
-.player1{
+.player-one{
     background-color :crimson; 
+
 } 
 
-.player2{
+.player-two{
     background-color : yellow; 
 }
 #player-1{
@@ -107,9 +108,10 @@ h1{
 .player{
     display:inline-block;
     margin-bottom: 40px;
-    margin-left: 675px;
+    margin-left: 500px;
+    margin-right: auto;
     text-align: center;
     font-size: 3em;
     font-weight: 500;
-    
+    vertical-align: middle;
 }

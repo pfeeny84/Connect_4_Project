@@ -5,8 +5,6 @@ let spaces = document.querySelectorAll(".grid-item");
 const newGameBtn = document.querySelector('#new-game');
 const newRoundBtn = document.querySelector('#new-round');
 let player = document.querySelector(".player");
-let spaceFilled = 0;
-let currentPlayer = 1;
 const winningArray = [
     [0, 1, 2, 3],
     [41, 40, 39, 38],
@@ -82,24 +80,36 @@ const winningArray = [
 
 /*----- app's state (variables) -----*/
 
+let currentPlayer = 1;
 const players = {
     '1': {
         name: 'Player 1',
         rounds_won: 0,
         moves: 0,
-        spaces_taken: []
+        spaces_taken: [],
+        num: 1
+        
     },
     '-1': {
         name: 'Player 2',
         rounds_won: 0,
         moves: 0,
-        spaces_taken: []
+        spaces_taken: [],
+        num: -1
         
     } 
 };
 
 /*----- cached element references -----*/
 
+let grid = [
+    [0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0]
+]; //what spaces are taken by which player
 
 
 /*----- event listeners -----*/
@@ -108,12 +118,9 @@ const players = {
 /*----- functions -----*/
 
 function initialize(){  
-    let spaces = document.querySelectorAll(".grid-item");
-    Array.from(spaces).forEach(function(space) { 
-    space.addEventListener("click",function clicked(){
-        console.log('space clicked');
-    })
-    })
+    let spaces = document.querySelector(".grid-container");
+    spaces.addEventListener('click', spaceClicked)
+    
     newGameBtn.addEventListener("click",function reset(){
         currentPlayer = players[1].name;
         player.innerHTML=currentPlayer
@@ -128,8 +135,16 @@ function initialize(){
         document.getElementById("p2-moves").innerHTML = players[-1].moves;
         document.getElementById("p2-rounds-won").innerHTML = players[-1].rounds_won;
 
+        grid = [
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0]
+        ];
 
-        console.log('resetting state...');
+        console.log('initializing state...');
     }) 
 }
 
@@ -137,11 +152,77 @@ initialize();
 
 
 function render(){
-    //when p1 clicks on an unoccupied space, I need a function to check:
-    //if the space is unoccupied and a valid play(above a taken space only)
-    //if it is valid, the background-color of the space should change to the players color
-    //then, I need the clicked space to be assigned a class of 'taken' and player x
-    //then, I need to push the index of the space into each players spaces_taken array.
-    //then, I need the moves ke in each players object to increase by 1
-    //then, 
+    let rows = document.querySelectorAll("[row]");
+    let columns =document.querySelectorAll("[column]");
+
+    console.log(rows)
+    console.log(columns)
+    
+    grid.forEach(function (rows, i){
+        rows.forEach(function (columns, j){
+            if(grid[i][j] == 1) {
+                let idx = i * 7 + j;
+                document.getElementById(`${idx}`).style.backgroundColor = 'red';
+            } else if (grid[i][j] == -1) {
+                let idx = i * 7 + j 
+                document.getElementById(`${idx}`).style.backgroundColor = 'yellow';
+            }
+        })
+    })
+    // loop rows --> rowIdx
+        // loop cols --> colIdx
+            // if (grid[rowIdx][colIdx] == 1){
+                // Do something 
+            // } else {
+
+            // }
+}
+
+
+function spaceClicked(e){
+    if (e.target.className !== 'grid-item') {
+        return 
+    }
+    console.log('this is e ', e.target)  
+    
+    let click = parseInt(e.target.id);
+    let bottomSpace = click % 7 + 35;
+    let secondSpace = click % 7 + 28;
+    let thirdSpace = click % 7 + 21;
+    let fourthSpace = click % 7 + 14;
+    let fifthSpace = click % 7 + 7;
+    let topSpace = click % 7;
+
+    
+    if (grid[Math.floor(bottomSpace / 7)][bottomSpace % 7] == 0){
+        grid[Math.floor(bottomSpace / 7)][bottomSpace % 7] = 1;
+    } else if(grid[Math.floor(secondSpace / 7)][secondSpace % 7] == 0){
+        grid[Math.floor(secondSpace / 7)][secondSpace % 7] = 1;
+    } else if(grid[Math.floor(thirdSpace / 7)][thirdSpace % 7] == 0){
+        grid[Math.floor(thirdSpace / 7)][thirdSpace % 7] = 1;
+    } else if(grid[Math.floor(fourthSpace / 7)][fourthSpace % 7] == 0){
+        grid[Math.floor(fourthSpace / 7)][fourthSpace % 7] = 1;
+    } else if(grid[Math.floor(fifthSpace / 7)][fifthSpace % 7] == 0){
+        grid[Math.floor(fifthSpace / 7)][fifthSpace % 7] = 1;
+    } else if(grid[Math.floor(topSpace / 7)][topSpace % 7] == 0){
+        grid[Math.floor(topSpace / 7)][topSpace % 7] = 1;
+    } else {
+        alert('SELECTION NOT VALID')
+    }
+    console.log(grid)
+
+    // if(currentPlayer === players[1].name){
+    //     currentPlayer = players[-1].name;
+    //     player.innerHTML = currentPlayer;
+    //     click.className = "player-one taken";
+
+    //     // checkWin();
+    // } else if (currentPlayer === players[-1].name){
+    //     currentPlayer = players[1].name;
+    //     player.innerHTML = currentPlayer;
+    //     click.className = "player-two taken"
+    //     // checkWin();
+    // }
+
+    render();
 }
