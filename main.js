@@ -1,7 +1,7 @@
 /*----- constants -----*/
 
 const board = document.querySelector(".grid-container");
-let spaces = document.querySelectorAll(".grid-item");
+// let spaces = document.querySelectorAll(".grid-item");
 const newGameBtn = document.querySelector('#new-game');
 const newRoundBtn = document.querySelector('#new-round');
 let player = document.querySelector(".player");
@@ -116,15 +116,15 @@ let grid = [
 function initialize(){  
     let spaces = document.querySelector(".grid-container");
     spaces.addEventListener('click', spaceClicked)
-    
+    currentPlayer = players[1].name;
     newGameBtn.addEventListener("click",function reset(){
         currentPlayer = players[1].name;
-        player.innerHTML=currentPlayer
+        player.innerHTML=currentPlayer;
         players[1].moves = 0;
         players[-1].moves = 0;
         document.getElementById("p1-moves").innerHTML = players[1].moves;
         document.getElementById("p2-moves").innerHTML = players[-1].moves;
-
+        
         grid = [
             [0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0],
@@ -133,7 +133,8 @@ function initialize(){
             [0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0]
         ];
-
+        // grid.style.backgroundColor = 'blue';
+        
         console.log('initializing state...');
     }) 
 }
@@ -156,7 +157,7 @@ function render(){
             } else if (grid[i][j] == -1) {
                 let idx = i * 7 + j 
                 document.getElementById(`${idx}`).style.backgroundColor = 'yellow';
-            }
+            } 
         })
     })
     
@@ -167,7 +168,7 @@ function spaceClicked(e){
     if (e.target.className !== 'grid-item') {
         return 
     }
-    console.log('this is e ', e.target)  
+    // console.log('this is e ', e.target)  
     
     let click = parseInt(e.target.id);
     let bottomSpace = click % 7 + 35;
