@@ -107,6 +107,7 @@ let grid = [
     [0,0,0,0,0,0,0]
 ]; //what spaces are taken by which player
 
+currentPlayer = players[1].name;
 
 /*----- event listeners -----*/
 
@@ -116,12 +117,12 @@ let grid = [
 function initialize(){  
     let spaces = document.querySelector(".grid-container");
     spaces.addEventListener('click', spaceClicked)
-    currentPlayer = players[1].name;
     newGameBtn.addEventListener("click",function reset(){
         currentPlayer = players[1].name;
         player.innerHTML=currentPlayer;
         players[1].moves = 0;
         players[-1].moves = 0;
+        document.getElementsByClassName(".grid-item").style.backgroundColor= '#caf0f8';
         document.getElementById("p1-moves").innerHTML = players[1].moves;
         document.getElementById("p2-moves").innerHTML = players[-1].moves;
         
@@ -134,6 +135,7 @@ function initialize(){
             [0,0,0,0,0,0,0]
         ];
         // grid.style.backgroundColor = 'blue';
+        
         
         console.log('initializing state...');
     }) 
