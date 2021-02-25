@@ -97,7 +97,7 @@ const players = {
 };
 
 /*----- cached element references -----*/
-
+let winner;
 let grid = [
     [0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0],
@@ -111,38 +111,38 @@ currentPlayer = players[1].name;
 
 /*----- event listeners -----*/
 
+let spaces = document.querySelector(".grid-container");
+spaces.addEventListener('click', spaceClicked);
+newGameBtn.addEventListener("click", newGame);
 
 /*----- functions -----*/
 
+console.log('this is grid item' , document.getElementsByClassName("grid-item"))
 function initialize(){  
-    let spaces = document.querySelector(".grid-container");
-    spaces.addEventListener('click', spaceClicked)
-    newGameBtn.addEventListener("click",function reset(){
-        currentPlayer = players[1].name;
-        player.innerHTML=currentPlayer;
-        players[1].moves = 0;
-        players[-1].moves = 0;
-        document.getElementsByClassName(".grid-item").style.backgroundColor= '#caf0f8';
-        document.getElementById("p1-moves").innerHTML = players[1].moves;
-        document.getElementById("p2-moves").innerHTML = players[-1].moves;
-        
-        grid = [
-            [0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0],
-            [0,0,0,0,0,0,0]
-        ];
-        // grid.style.backgroundColor = 'blue';
-        
-        
-        console.log('initializing state...');
-    }) 
+    currentPlayer = players[1].name;
+    player.innerHTML=currentPlayer;
+    players[1].moves = 0;
+    players[-1].moves = 0;
+    document.getElementById("p1-moves").innerHTML = players[1].moves;
+    document.getElementById("p2-moves").innerHTML = players[-1].moves;
+    
+    grid = [
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0],
+        [0,0,0,0,0,0,0]
+    ];
+    winner = null;
+    
+    grid.forEach(function(el){
+        el.style.backgroundColor = '#caf0f8'
+    })
+
+    render();
 }
-
 initialize();
-
 
 function render(){
     let rows = document.querySelectorAll("[row]");
@@ -165,7 +165,28 @@ function render(){
     
 }
 
-
+function newGame(){
+    initialize();
+    // currentPlayer = players[1].name;
+    // player.innerHTML=currentPlayer;
+    // players[1].moves = 0;
+    // players[-1].moves = 0;
+    // document.grid.style.backgroundColor= '#caf0f8';
+    // document.getElementById("p1-moves").innerHTML = players[1].moves;
+    // document.getElementById("p2-moves").innerHTML = players[-1].moves;
+    
+    // grid = [
+    //     [0,0,0,0,0,0,0],
+    //     [0,0,0,0,0,0,0],
+    //     [0,0,0,0,0,0,0],
+    //     [0,0,0,0,0,0,0],
+    //     [0,0,0,0,0,0,0],
+    //     [0,0,0,0,0,0,0]
+    // ];
+    // // grid.style.backgroundColor = 'blue';
+    // winner = null
+    // console.log('initializing state...');
+}
 function spaceClicked(e){
     if (e.target.className !== 'grid-item') {
         return 
