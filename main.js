@@ -212,3 +212,24 @@ function spaceClicked(e){
 
     render();
 }
+
+// function checkWin(row, column){
+//     //check down right
+//     for(let i=0; i < 4; i++){
+//         console.log(row, column);
+//         console.log(i)
+//         if(grid[row + i] { 
+//           if(grid[row + i][column + i]) { 
+//             if(!grid[row][column] === grid[row + i][column + i]) {
+//               return;
+//             } else if(grid[row][column] === grid[row + i][column + i] && i === 3 ){
+//               alert('somebody won')
+//             }
+//           } else {
+//             return // this is a return if the next column doesn't exist
+//           }
+//         } else {
+//            return // this is a return if the next row doesn't exist
+//         }
+//     }
+// }
