@@ -259,3 +259,88 @@ let click = spaces.forEach(function (space){
             // } else {
 
             // }
+
+
+    //         <div class = "player-info" >
+    // <div id ="player-1">
+    //     <h2 id="p1">PLAYER ONE</h2>
+    //     <h3>Moves:<span id = "p1-moves"></span></h3>
+    // </div>
+    // <div id ="player-2">
+    //     <h2 id="p2">PLAYER TWO</h2>
+    //     <h3>Moves:<span id = "p2-moves"></span></h3>
+    // </div> 
+
+    // players[1].moves = 0;
+    // players[-1].moves = 0;
+    // document.getElementById("p1-moves").innerHTML = players[1].moves;
+    // document.getElementById("p2-moves").innerHTML = players[-1].moves;
+
+    function checkWin(r,c){
+        for(r=0; r < 2; r++){
+            for (c=0; c < 6; c++){
+              //do something to check down [r][c], [r+1][c] , [r+2][c], [r+3][c]  
+            }
+        }
+        for(r=0; r < 3; r++){
+            for(c=0; c < 6; c++){
+             //do something to check up [r][c], [r-1][c], [r-2][c], [r-3][c]   
+            }
+        }
+    
+        for(r=0; r < 5; r++){
+            for(c=0; c < 3; c++){
+               //do something to check right [r][c], [r][c+1], [r][c+2], [r][c+3] 
+            }
+        }
+    
+        for(r=0; r < 5; r++){
+            for(c=3; c < 6; c++){
+                // do something to check left [r][c], [r][c-1], [r][c-2], [r][c-3]
+            }
+             
+        }
+        for(r=0; r < 2; r++){
+            for(c=0; c < 3; c++){
+                //do something to check down right [r][c], [r+1][c+1], [r+2][c+2], [r+3][c+3]
+            }
+        }
+        for(r=0; r < 3; r++){
+            for(c=0; c < 3; c++){
+                //do something to check up right [r][c], [r-1][c-1], [r-2][c-2], [r-3][c-3]
+    
+            }
+        }
+        for(r=0; r < 2; r++){
+            for(c=0; c < 3; c++){
+             //do something to check down left [r][c], [r+1][c+1], [r+2][c+2], [r+3][c+3]   
+            }
+        }
+        for(r=0; r < 3; r++){
+            for(c=0; c < 3; c++){
+             //do something to check up left [r][c], [r-1][c-1], [r-2][c-2], [r-3][c-3]   
+            }
+        }
+    }
+
+
+    // function checkWin(row, column){
+    //     //check down right
+    //     for(let i=0; i < 4; i++){
+    //         console.log(row, column);
+    //         console.log(i)
+    //         if(grid[row + i] { // FIRST check to see if another row actually exists (otherwise we can't access a column in a row that doesnt exist)
+    //           if(grid[row + i][column + i]) { // SECOND check to see if another column actually exists (we can't check the value of a column that doesnt exist)
+    //             if(!grid[row][column] === grid[row + i][column + i]) {
+    //               return;
+    //             } else if(grid[row][column] === grid[row + i][column + i] && i === 3 ){
+    //               alert('somebody won')
+    //             }
+    //           } else {
+    //             return // this is a return if the next column doesn't exist
+    //           }
+    //         } else {
+    //            return // this is a return if the next row doesn't exist
+    //         }
+    //     }
+    // }

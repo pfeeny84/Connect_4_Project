@@ -21,8 +21,8 @@
 }
 
 .grid-item:hover {
-    background-color:grey;
-    cursor:pointer;
+    background-color:rgba(187, 237, 204, 0.69) !important;
+    cursor:crosshair;
 }
 body{
     background-color: #caf0f8;
@@ -69,42 +69,19 @@ h1{
     margin: 10px;
     box-shadow: 1px 1px 1.5px  #0b0b0b6e ;
 }
-#new-round:hover{
-    cursor:pointer;
-}
-
-#player-1{
-    display:inline-block;
-    margin: 60px;
-}
-
-#player-2{
-    margin: 60px;
-    float: right;
-}
-
-#p1{
-    border-radius: 10px;
-    border: 4px double #000000d5;
-    padding: 5px;
-    background-color: #7b38d8;
-    color: #ff0000;
-}
-#p2{
-    border-radius: 10px;
-    border: 4px double #000000d5;
-    padding: 5px;
-    background-color: #7b38d8;
-    color: #fffb00;
-}
 
 .player{
-    display:inline-block;
+    display:block;
     margin-bottom: 40px;
-    margin-left: 500px;
+    margin-left: auto;
     margin-right: auto;
     text-align: center;
     font-size: 3em;
     font-weight: 500;
-    vertical-align: middle;
+    border-radius: 10px;
+    border: 4px double #000000d5;
+    padding: 5px;
+    background-color: #7b38d8;
+    color:rgb(137, 221, 59);
+    
 }

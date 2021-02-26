@@ -84,20 +84,18 @@ let currentPlayer;
 const players = {
     '1': {
         name: 'Player One',
-        moves: 0,
         num: 1
         
     },
     '-1': {
         name: 'Player Two',
-        moves: 0,
         num: -1
         
     } 
 };
 
-/*----- cached element references -----*/
 let winner;
+/*----- cached element references -----*/
 let grid = 
    [[0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0],
@@ -120,10 +118,7 @@ console.log('this is grid item' , document.getElementsByClassName("grid-item"))
 function initialize(){  
     currentPlayer = players[1].name;
     player.innerHTML=currentPlayer;
-    players[1].moves = 0;
-    players[-1].moves = 0;
-    document.getElementById("p1-moves").innerHTML = players[1].moves;
-    document.getElementById("p2-moves").innerHTML = players[-1].moves;
+    
     
     grid = [
         [0,0,0,0,0,0,0],
@@ -169,40 +164,14 @@ function render(){
 function newGame(){
     initialize();
 
-    // document.getElementsByClassName("grid-item").forEach(function(item){
-    //     item.style.backgroundColor = '#caf0f8'
-    // });
-
-    // grid.forEach(function(item){
-    //     item.style.backgroundColor = '#caf0f8'
-    // });
-
-    // currentPlayer = players[1].name;
-    // player.innerHTML=currentPlayer;
-    // players[1].moves = 0;
-    // players[-1].moves = 0;
-    // document.grid.style.backgroundColor= '#caf0f8';
-    // document.getElementById("p1-moves").innerHTML = players[1].moves;
-    // document.getElementById("p2-moves").innerHTML = players[-1].moves;
-    
-    // grid = [
-    //     [0,0,0,0,0,0,0],
-    //     [0,0,0,0,0,0,0],
-    //     [0,0,0,0,0,0,0],
-    //     [0,0,0,0,0,0,0],
-    //     [0,0,0,0,0,0,0],
-    //     [0,0,0,0,0,0,0]
-    // ];
-    // // grid.style.backgroundColor = 'blue';
-    // winner = null
-    // console.log('initializing state...');
 }
 function spaceClicked(e){
     if (e.target.className !== 'grid-item') {
         return 
     }
     // console.log('this is e ', e.target)  
-    
+    let row = parseInt(e.target.dataset.row);
+    let column = parseInt(e.target.dataset.column);
     let click = parseInt(e.target.id);
     let bottomSpace = click % 7 + 35;
     let secondSpace = click % 7 + 28;
@@ -210,38 +179,156 @@ function spaceClicked(e){
     let fourthSpace = click % 7 + 14;
     let fifthSpace = click % 7 + 7;
     let topSpace = click % 7;
-
+// console.log(e.target.dataset.row , e.target.dataset.column)
     
     
     if (grid[Math.floor(bottomSpace / 7)][bottomSpace % 7] == 0){
         grid[Math.floor(bottomSpace / 7)][bottomSpace % 7] = currentPlayer === 'Player One' ? 1 : -1;
+        checkWin(row,column);
     } else if(grid[Math.floor(secondSpace / 7)][secondSpace % 7] == 0){
         grid[Math.floor(secondSpace / 7)][secondSpace % 7] = currentPlayer === 'Player One' ? 1 : -1;
+        checkWin(row,column);
     } else if(grid[Math.floor(thirdSpace / 7)][thirdSpace % 7] == 0){
         grid[Math.floor(thirdSpace / 7)][thirdSpace % 7] = currentPlayer === 'Player One' ? 1 : -1;
+        checkWin(row,column);
     } else if(grid[Math.floor(fourthSpace / 7)][fourthSpace % 7] == 0){
         grid[Math.floor(fourthSpace / 7)][fourthSpace % 7] = currentPlayer === 'Player One' ? 1 : -1;
+        checkWin(row,column);
     } else if(grid[Math.floor(fifthSpace / 7)][fifthSpace % 7] == 0){
         grid[Math.floor(fifthSpace / 7)][fifthSpace % 7] = currentPlayer === 'Player One' ? 1 : -1;
+        checkWin(row,column);
     } else if(grid[Math.floor(topSpace / 7)][topSpace % 7] == 0){
         grid[Math.floor(topSpace / 7)][topSpace % 7] = currentPlayer === 'Player One' ? 1 : -1;
+        checkWin(row,column);
+       
     } else {
         alert('SELECTION NOT VALID')
     }
     console.log(grid)
-
     if(currentPlayer === players[1].name){
         currentPlayer = players[-1].name;
         player.innerHTML = currentPlayer;
         
 
-        // checkWin();
+        
     } else if (currentPlayer === players[-1].name){
         currentPlayer = players[1].name;
         player.innerHTML = currentPlayer;
         
-        // checkWin();
+        
     }
 
     render();
 }
+//check diagonal right
+function checkWin(row, column){
+    for(i=0; i < 4; i++){
+        // console.log(i);
+        if(grid[row + i]){
+            // console.log(grid[row + i])
+            if(grid[row +i][column + i]){
+                // console.log(grid[row +i][column + i])
+                if(!grid[row][column] === grid[row + i][column +i]){
+                    // console.log(!grid[row][column] === grid[row + i][column +i])
+                    return;
+                } else if(grid[row][column] === grid[row + i][column + i] && i===3){
+                    console.log(grid[row][column] === grid[row + i][column + i])
+                    alert('somebody won');
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function checkWin(row,column){
+//     //check down right
+//     for(let i=0; i < 4; i++){
+//         if(grid[row + i]){
+//             console.log(row + i)
+//             if(grid[row + i][column + i]){
+//                 console.log(grid[row + i][column + i])
+//                 if(!grid[row][column] === grid[row + i][column + i]){
+//                     console.log(!grid[row][column] === grid[row + i][column + i])
+//                     return;
+//                 } else if(grid[row][column] === grid[row + i][column + i] && i === 3){
+//                     console.log(grid[row][column] === grid[row + i][column + i])
+//                     alert('somebody won');
+//                 }
+//             }
+//         }
+//     }
+// }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //     for(let i=0; i < 4; i++){
+    //         // console.log(i);
+    //         if(grid[row + i]) {
+    //             console.log(grid[row + i]);
+    //             if(grid[row + i][column + i]){
+    //                 console.log(grid[row + i][column + i]);
+    //                 if(!grid[row][column] === grid[row+i][column+i]){
+    //                 //   console.log(!grid[row][column] === grid[row+i][column+i]);
+    //                     return;
+    //                 } else if(grid[row][column] === grid[row+i][column+i] && i === 3){
+    //                     alert('somebody won')
+    //                 } 
+    //             } 
+    
+    //         }
+    //     }
+    
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
