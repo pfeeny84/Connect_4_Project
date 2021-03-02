@@ -324,23 +324,98 @@ let click = spaces.forEach(function (space){
     }
 
 
-    // function checkWin(row, column){
-    //     //check down right
-    //     for(let i=0; i < 4; i++){
-    //         console.log(row, column);
-    //         console.log(i)
-    //         if(grid[row + i] { // FIRST check to see if another row actually exists (otherwise we can't access a column in a row that doesnt exist)
-    //           if(grid[row + i][column + i]) { // SECOND check to see if another column actually exists (we can't check the value of a column that doesnt exist)
-    //             if(!grid[row][column] === grid[row + i][column + i]) {
-    //               return;
-    //             } else if(grid[row][column] === grid[row + i][column + i] && i === 3 ){
-    //               alert('somebody won')
+    
+    function checkWin(row, column){
+        for(i=0; i < 4; i++){
+            // console.log(i);
+            if(grid[row + i]){
+                // console.log(grid[row + i])
+                if(grid[row +i][column + i]){
+                    // console.log(grid[row +i][column + i])
+                    if(!grid[row][column] === grid[row + i][column +i]){
+                        // console.log(!grid[row][column] === grid[row + i][column +i])
+                        return;
+                    } else if(grid[row][column] === grid[row + i][column + i] && i===3){
+                        // console.log(grid[row][column] === grid[row + i][column + i])
+                        alert('somebody won');
+                    }
+                }
+            }
+        }
+    }
+    // check diagonal right
+// function checkWin(row, column){
+    // for(i=0; i < 4; i++){
+    //     // console.log(i);
+    //     if(grid[row + i]){
+    //         // console.log(grid[row + i])
+    //         if(grid[row +i][column + i]){
+    //             // console.log(grid[row +i][column + i])
+    //             if(!grid[row][column] === grid[row + i][column +i]){
+    //                 // console.log(!grid[row][column] === grid[row + i][column +i])
+    //                 return;
+    //             } else if(grid[row][column] === grid[row + i][column + i] && i===3){
+    //                 // console.log(grid[row][column] === grid[row + i][column + i])
+    //                 alert('somebody won');
     //             }
-    //           } else {
-    //             return // this is a return if the next column doesn't exist
-    //           }
-    //         } else {
-    //            return // this is a return if the next row doesn't exist
     //         }
     //     }
+    // }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function checkWin(row,column){
+//     //check down right
+//     for(let i=0; i < 4; i++){
+//         if(grid[row + i]){
+//             console.log(row + i)
+//             if(grid[row + i][column + i]){
+//                 console.log(grid[row + i][column + i])
+//                 if(!grid[row][column] === grid[row + i][column + i]){
+//                     console.log(!grid[row][column] === grid[row + i][column + i])
+//                     return;
+//                 } else if(grid[row][column] === grid[row + i][column + i] && i === 3){
+//                     console.log(grid[row][column] === grid[row + i][column + i])
+//                     alert('somebody won');
+//                 }
+//             }
+//         }
+//     }
+// }
+//     for(let i=0; i < 4; i++){
+    //         // console.log(i);
+    //         if(grid[row + i]) {
+    //             console.log(grid[row + i]);
+    //             if(grid[row + i][column + i]){
+    //                 console.log(grid[row + i][column + i]);
+    //                 if(!grid[row][column] === grid[row+i][column+i]){
+    //                 //   console.log(!grid[row][column] === grid[row+i][column+i]);
+    //                     return;
+    //                 } else if(grid[row][column] === grid[row+i][column+i] && i === 3){
+    //                     alert('somebody won')
+    //                 } 
+    //             } 
+    
+    //         }
+    //     }
+    
     // }
