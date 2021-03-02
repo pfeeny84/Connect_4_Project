@@ -155,7 +155,8 @@ function spaceClicked(e){
            player.innerHTML = 'You Have Won!';
        }
     };
-//winning logic
+
+    //winning logic
 
 function checkLine(a,b,c,d) {
     // Check first cell non-zero and all cells match
