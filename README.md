@@ -15,8 +15,10 @@ The objective of the game is to be the first to form a horizontal, vertical, or 
 - Uses a combination of HTML, CSS and JavaScript.
 ### Additions I'd like to make
 - Current player token displays above grid when hovering over a column
-- Counter for number of moves per player in a game
+- Highlight winning tokens after someone wins
 - New round button and counter that will track number of games one in  a playing session. 
+
+
 ### Implementation
 How to run the game: open the index.html file in a modern browser 
 ### Game: 
