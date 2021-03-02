@@ -19,7 +19,6 @@
     box-shadow: 1.75px 2px 1.5px 1px #0b0b0b6e ;
     text-align: center;
 }
-
 .grid-item:hover {
     background-color:grey;
     cursor:pointer;
