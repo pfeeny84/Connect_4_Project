@@ -1,9 +1,9 @@
 # Connect_4_Project
 
 Connect Four is a two-player game where the players take turns dropping colored tokens from the top into a seven-column, six-row  grid. The pieces fall straight down, occupying the next available space within the column. 
-The objective of the game is to be the first to form a horizontal, vertical, or diagonal line of four tokens in a row of their respective color.
+The objective of the game is to be the first to form a horizontal, vertical, or diagonal line of four tokens in a row of their respective colour.
 
-[Imgur](https://i.imgur.com/rZ1jtoi.png)
+![alt text](https://i.imgur.com/rZ1jtoi.png)
 ### Brief overview of the rules
 - Connect four of your chips in a row while blocking off your opponents' chips.
 - The two players take turns dropping checkers into a vertical board.
